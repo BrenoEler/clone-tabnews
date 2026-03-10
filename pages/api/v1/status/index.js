@@ -1,7 +1,11 @@
+import database from "../../../../infra/database.js";
 
-
-function status(request, response){
-  response.status(200).json({message: "alunos do curso.dev sao pessoas a cima da media."})
+async function status(request, response) {
+  const result = await database.query("SELECT 1 + 1;");
+  console.log(result.rows);
+  response
+    .status(200)
+    .json({ message: "alunos do curso.dev sao pessoas a cima da media." });
 }
 
-export default status
+export default status;
